@@ -17,7 +17,7 @@
                 <ion-item>
                     <ion-label>Repositórios</ion-label>
                     <ion-select [(ngModel)]="repo" (ionChange)="selecionaRepo()">
-                        <ion-option  *ngFor="let repo of repos">{{repo.name}}</ion-option>
+                        <ion-option  *ngFor="let repo of apiGit.repositorios">{{repo.name}}</ion-option>
 
                     </ion-select>
                 </ion-item>

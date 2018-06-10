@@ -70,14 +70,7 @@ export class HomePage {
         // }
 
 
-        // async selecionaRepo() {
-        //     try {
-        //         await this.apiGit.salvaRepositorio(this.repo);
-        //         console.log('repo', this.repo);
-        //     } catch (error) {
-        //         console.log(error);
-        //     }
-        // }
+       
 
         // async selecionaMile() {
         //     try {
@@ -103,6 +96,16 @@ export class HomePage {
             //     console.log(error);
             // }
         }
+
+        async selecionaRepo() {
+            try {
+                await this.apiGit.salvaRepositorio(this.repo);
+                console.log('repo', this.repo);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        
 
 
 }

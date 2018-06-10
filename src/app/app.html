@@ -13,10 +13,9 @@
                 <ion-title padding> Organizações </ion-title>
             </ion-list>
 
-
             <div *ngIf="apiGit && apiGit.organizacoes" >
 
-                <button ion-item no-lines *ngFor="let org of apiGit.organizacoes" (click)="abreOrgs(org.login)">
+                <button ion-item no-lines *ngFor="let org of apiGit.organizacoes" (click)="abreOrgs(org)">
                         {{org.login}}
                 </button>
             </div>
