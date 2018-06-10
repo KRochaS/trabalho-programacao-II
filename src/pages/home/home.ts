@@ -62,7 +62,7 @@ export class HomePage {
         //     console.log(this.visaoGeral);
         // }
 
-       
+
 
 
 
@@ -70,7 +70,7 @@ export class HomePage {
         // }
 
 
-       
+
 
         // async selecionaMile() {
         //     try {
@@ -82,30 +82,30 @@ export class HomePage {
         //     }
         // }
 
-        }
+    }
 
 
-        ionViewDidLoad() {
-            this.menuCtrl.enable(true);
-            // try {
-            //     this.repo = await this.apiGit.recuperaRepositorio();
-            //     console.log(this.repo);
-    
-            // } catch (error) {
-    
-            //     console.log(error);
-            // }
-        }
+    async ionViewDidLoad() {
+        this.menuCtrl.enable(true);
+        try {
+            this.repo = await this.apiGit.recuperaRepositorio();
+            console.log(this.repo);
 
-        async selecionaRepo() {
-            try {
-                await this.apiGit.salvaRepositorio(this.repo);
-                console.log('repo', this.repo);
-            } catch (error) {
-                console.log(error);
-            }
+        } catch (error) {
+
+            console.log(error);
         }
-        
+    }
+
+    async selecionaRepo() {
+        try {
+            await this.apiGit.salvaRepositorio(this.repo);
+            console.log('repo', this.repo);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
 
 
 }
