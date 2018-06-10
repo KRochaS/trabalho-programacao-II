@@ -1,14 +1,154 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar color="white">
+        <button class="show-menu-button" ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title> Home </ion-title>
+    </ion-navbar>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+</ion-header>
+<ion-content>
+
+
+    <ion-card>
+        <ion-row padding>
+            <ion-col col-12 col-lg-4>
+                <h2> Selecione o Repositório </h2>
+                <ion-item>
+                    <ion-label>Repositórios</ion-label>
+                    <ion-select [(ngModel)]="repo" (ionChange)="selecionaRepo()">
+                        <ion-option  *ngFor="let repo of repos">{{repo.name}}</ion-option>
+
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+
+            <ion-col col-12 col-lg-4>
+                <h2> Selecione a Milestone (Sprint) </h2>
+                <ion-item>
+                    <ion-label>Milestones</ion-label>
+                    <ion-select [(ngModel)]="milestone" (ionChange)="selecionaMile()">
+                        <ion-option *ngFor="let milestone of milestones">{{milestone.title}}</ion-option>
+
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+            <ion-col col-12 col-lg-4>
+                <h2> Selecione a Coluna </h2>
+                <ion-item>
+                    <ion-label>Colunas</ion-label>
+                    <ion-select>
+                        <ion-option> Backlog </ion-option>
+                        <ion-option> Sprint Backlog </ion-option>
+                        <ion-option> In Progress </ion-option>
+                        <ion-option> Aguardando </ion-option>
+                        <ion-option> Concluído </ion-option>
+
+                    </ion-select>
+
+
+                </ion-item>
+            </ion-col>
+
+        </ion-row>
+
+        <button ion-button clear (click)="abrirVisaoGeral()">
+            Visão geral de issues
+        </button>
+
+
+
+    </ion-card>
+
+    <div *ngIf="visaoGeral" padding>
+        <ion-row>
+            <ion-col no-padding col-12 col-lg-8 col-xl-6 padding>
+
+                <h2>
+                    Visão Geral
+                </h2>
+
+                <ion-card padding class="primeiro-card">
+                    <ion-card-header>
+                        <h1>
+                            In Progress (6)
+                        </h1>
+                    </ion-card-header>
+
+                    <ion-card padding>
+                        <h5 class="borda" padding>
+                            Issues com estimativa: 6
+                        </h5>
+
+                        <ion-row>
+                            <ion-col padding-left class="coluna-estimativa">
+                                <p> Total de Horas Estimadas</p>
+                            </ion-col>
+                            <ion-col col-auto padding>
+                                <div padding class="total-estimativa">
+                                    <p> 18h </p>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card>
+
+
+
+                    <ion-card padding>
+                        <h5 class="borda" padding>
+                            Issues com TDT: 6
+                        </h5>
+
+                        <ion-row>
+                            <ion-col padding-left class="coluna-estimativa">
+                                <p> TDT realizado</p>
+                            </ion-col>
+                            <ion-col col-auto padding>
+                                <div padding class="total-tdt">
+                                    <p> 20h </p>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card>
+
+
+                    <ion-card padding>
+                        <h5 class="borda" padding>
+                            Issues sem Estimativa: 0
+                        </h5>
+
+                        <h5 padding>
+                            Issues sem TDT: 0
+                        </h5>
+                    </ion-card>
+
+                    <!-- <h5> Somatório de Estimativas: </h5>
+                        <p> Quantidade de Issues com Estimativa: 6</p>
+                        <p> Horas Estimadas: 23h Total</p>
+
+                        <h5> Somatório de TDT (Tempo de Trabalho) </h5>
+                        <p> Quantidade de Issues com TDT: 4</p>
+                        <p> TDT realizado: 18h</p>
+
+
+                        <p> Horas estimadas: 23h</p>
+                        <p> TDT total gasto: 18h</p>
+
+
+                        <h5> Issues sem Estimativas </h5>
+                        <p> Quantidade de issues que não possuem estimativa: 2</p>
+                        <p> Quantidade de issues sem tdt: 3</p> -->
+
+
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </div>
+
+
+
+
+
+
+
 </ion-content>

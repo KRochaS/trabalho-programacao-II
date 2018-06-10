@@ -1,3 +1,72 @@
 page-home {
 
+
+	.primeiro-card {
+		background-color: #FBFBFB;
+	}
+  .filtros h2 {
+    color: #000 !important;
+    font-size: 15px;
+    margin-top: 10px !important;
+
+  }
+
+  h2 {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+
+  ion-card-header {
+    border-bottom: 2px solid #EDEDEE;
+  }
+
+  h5.borda {
+    border-bottom: 1px solid #d3d3d3;
+  }
+
+  .total-estimativa {
+    background-color:#46489C;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+    p {
+      font-size: 12px;
+	  font-weight: 500;
+	  color: white;
+    }
+  }
+
+  .total-tdt {
+    background-color:green;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+    p {
+      font-size: 12px;
+	  font-weight: 500;
+	  color: white;
+    }
+  }
+
+  .coluna-estimativa {
+	display: flex;
+	
+	align-items: center;
+  }
+
+
+
 }

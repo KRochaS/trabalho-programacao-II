@@ -1,0 +1,213 @@
+page-login-token {
+  .background {
+    background-color: #648898;
+  }
+
+  //     .titulo {
+  //         color: white !important;
+
+  //    }
+  //    .card {
+  //     background-color: white;
+  //     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  //    }
+
+  .clip-svg {
+    width: 0;
+    height: 0;
+  }
+
+  img {
+    //max-width: 100%;
+    height: auto;
+
+  }
+
+  // #poligono-cabecalho-login {
+  //     background-color: #009b9b !important;
+
+  //     }
+  // .poligono-cabecalho-login {
+  //     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  //     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  //     -webkit-clip-path: url("#poligono-cabecalho-login");
+  //     clip-path: url("#poligono-cabecalho-login");
+  //     margin-top: -50px;
+  //     // border-radius: 5px 5px 0px 0px;        
+  // }
+
+  .polygon-each-img-wrap {
+    width: 100%;
+    position: relative;
+    height: auto;
+    background-color: #009b9b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 16px;
+
+    p {
+      position: relative;
+      // bottom: 0px;
+      color: white;
+      font-size: 2em;
+      margin-top: 0;
+      margin-bottom: 0;
+      // margin-left: 50%;
+      // left: -55px;
+      // bottom: 10px;
+
+    }
+  }
+
+  .poligono-cabecalho-login {
+    width: 100%;
+    //height: 200px;
+    background-color: #009b9b;
+
+  }
+
+  div.img-nuvem {
+    background-color: #009b9b;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 100;
+    // left: -50px;
+    // margin-left: auto;
+    // margin-right: auto;
+    // bottom: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    background-color: white;
+    margin-bottom: 11px;
+
+  }
+
+  .nuvem {
+    margin: auto;
+    height: 50px;
+
+  }
+
+  .linha-row {
+    width: 100%;
+    @media(min-width: 768px) {
+      & {
+        flex-direction: column;
+        height: 100%;
+      
+      }
+    }
+
+  }
+
+  .scroll-content {
+    overflow-y: auto;
+  }
+  @media (min-width: 768px) {
+    ion-content.background {
+    //   background-image: url('../../assets/img/login/oficial/modelo 01.fw.png');
+      // '../../assets/imgs/img-edit.jpg'
+      // '../../assets/img/login/oficial/modelo 01.fw.png'
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+  }
+
+  .form-login {
+    background-color: white;
+    @media(min-width: 600px) and (max-width:767px) {
+      & {
+        // width: 80%;
+        // margin-left: auto;
+        // margin-right: auto;
+       
+      }
+    }
+  }
+
+  .coluna1 {
+    min-height: 100%;
+    @media(min-width: 768px) {
+      & {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+       
+      }
+    }
+  }
+  @media(min-width: 768px) {
+    .coluna-login {
+      width: 300px;
+      box-shadow: 0 1px 1px rgba(97,127,152,.2), 1px 0 0 rgba(97,127,152,.1), -1px 0 0 rgba(97,127,152,.1);
+      margin-top: 100px;
+    }
+  }
+  @media(min-width: 1200px) and (min-height: 850px) {
+    .coluna-login {
+
+      height: 527px;
+      width: 370px;
+      //   background-color: white;
+    }
+  }
+
+  .item-inner {
+    border-bottom: 1px solid transparent !important;
+  }
+
+  ion-input {
+    border-bottom: 1px solid #DEDEDE !important;
+  }
+
+  ion-input.ng-invalid.ng-touched.ng-dirty {
+    border-bottom: 1px solid red !important;
+  }
+
+  ion-input.ng-pristine.ng-invalid.ng-touched {
+    border-bottom: 1px solid blue !important;
+  }
+
+  ion-input.ng-valid.ng-dirty.ng-touched {
+    border-bottom: 1px solid green !important;
+  }
+
+  .iconPassword {
+    $color: #6b6b6b;
+    margin-top: 25px !important;
+    margin-bottom: 0 !important;
+    color: $color;
+    cursor: pointer;
+    transition: .4s;
+
+    &:hover {
+      color: darken($color, 20%);
+    }
+  }
+
+  .iconeSmall {
+    color: #fff;
+    margin-top: 0;
+  }
+
+  .adquirir-token a {
+    text-decoration: none !important;
+  }
+}
+
+// @media (orientation: landscape) {
+//     page-teste-login-karine {
+//       -webkit-transform: rotate(-90deg);
+//       -moz-transform: rotate(-90deg);
+//       -o-transform: rotate(-90deg);
+//       -ms-transform: rotate(-90deg);
+//       transform: rotate(-90deg);
+//     }
+//   }

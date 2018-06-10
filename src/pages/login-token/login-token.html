@@ -1,0 +1,51 @@
+<ion-content [ngClass]="'background'">
+
+    <ion-row class="linha-row" justify-content-center align-items-center>
+        <ion-col col-md-6 no-padding class="coluna1">
+            <div class="coluna-login">
+                <ion-row>
+
+                    <div class="polygon-each-img-wrap">
+                        <!-- ../../assets/imgs/img-poligono.jpg -->
+                        
+                        <div class="img-nuvem">
+                            <img src="../../assets/icon/organizacao.svg" class="nuvem">
+                        </div>
+
+                        <p> GitSum </p>
+                    </div>
+                </ion-row>
+                <form [ngClass]="'form-login'" padding>
+                    <ion-item no-margin no-padding>
+                        <ion-label floating>token</ion-label>
+                        <ion-input name="token" [(ngModel)]="token" type="text"></ion-input>
+                    </ion-item>
+
+                    <!-- <nx-error  control="email"></nx-error> -->
+
+                    <!-- senha -->
+                   
+
+                    <!-- <small padding *ngIf="formLogin?.controls['senha'].dirty && formLogin?.controls['senha'].touched"> {{ exibeMensagem(formLogin.controls['senha']) }}</small> -->
+
+                    <ion-row no-margin no-padding padding-bottom margin-top>
+
+
+                        <ion-col text-right class="adquirir-token">
+                            <a  target="_blank" href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">Como adquirir Token</a>
+                        </ion-col>
+                    </ion-row>
+
+                    <!-- login -->
+                    <button [ngClass]="'button-entrar'" (click)="logar()" margin-top ion-button
+                        full margin-bottom>
+                        Entrar
+                       
+                    </button>
+                </form>
+            </div>
+        </ion-col>
+    </ion-row>
+
+
+</ion-content>
