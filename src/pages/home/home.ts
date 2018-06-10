@@ -39,68 +39,70 @@ export class HomePage {
         })
 
 
-        apiGit.buscaRepositorios(this.orgs).then((repos: any[]) => {
-            this.repos = repos;
-            console.log('Array com repositorios', this.repos);
-        }).catch((error) => {
-            console.log(error);
-        })
+        // apiGit.buscaRepositorios(this.orgs).then((repos: any[]) => {
+        //     this.repos = repos;
+        //     console.log('Array com repositorios', this.repos);
+        // }).catch((error) => {
+        //     console.log(error);
+        // })
 
 
-        apiGit.buscaMilestones().then((milestones: any[]) => {
-            this.milestones = milestones;
-            console.log('Array de Milestones (sprints): ', this.milestones);
-        }).catch((error) => {
-            console.log(error);
-        })
-    }
+        //     apiGit.buscaMilestones().then((milestones: any[]) => {
+        //         this.milestones = milestones;
+        //         console.log('Array de Milestones (sprints): ', this.milestones);
+        //     }).catch((error) => {
+        //         console.log(error);
+        //     })
+        // }
 
 
-    abrirVisaoGeral() {
-        this.visaoGeral = !this.visaoGeral;
+        // abrirVisaoGeral() {
+        //     this.visaoGeral = !this.visaoGeral;
 
-        console.log(this.visaoGeral);
-    }
+        //     console.log(this.visaoGeral);
+        // }
 
-    async ionViewDidLoad() {
-        this.menuCtrl.enable(true);
-        try {
-            this.repo = await this.apiGit.recuperaRepositorio();
-            console.log(this.repo);
+       
 
-        } catch (error) {
 
-            console.log(error);
+
+
+        // }
+
+
+        // async selecionaRepo() {
+        //     try {
+        //         await this.apiGit.salvaRepositorio(this.repo);
+        //         console.log('repo', this.repo);
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }
+
+        // async selecionaMile() {
+        //     try {
+        //         await this.apiGit.salvaMilestone(this.milestone);
+        //         console.log('mile', this.milestone);
+
+        //     } catch (error) {
+        //         console.log(error);
+        //     }
+        // }
+
         }
 
 
-
-
-    }
-
-
-    async selecionaRepo() {
-        try {
-            await this.apiGit.salvaRepositorio(this.repo);
-            console.log('repo', this.repo);
-        } catch (error) {
-            console.log(error);
+        ionViewDidLoad() {
+            this.menuCtrl.enable(true);
+            // try {
+            //     this.repo = await this.apiGit.recuperaRepositorio();
+            //     console.log(this.repo);
+    
+            // } catch (error) {
+    
+            //     console.log(error);
+            // }
         }
-    }
-
-    async selecionaMile() {
-        try {
-            await this.apiGit.salvaMilestone(this.milestone);
-            console.log('mile', this.milestone);
-            
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-
-
-
 
 
 }

@@ -34,14 +34,11 @@ export class MyApp {
 
 
     async abreOrgs(org) {
-
         try {
             this.apiGit.buscaRepositorios(org);
 
         } catch (error) {
             console.log(error);
         }
-
-
     }
 }

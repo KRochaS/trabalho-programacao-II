@@ -21,16 +21,7 @@ export class LoginTokenPage {
 
     async ionViewDidLoad() {
         this.menuCtrl.enable(false);
-        try {
-          let loginSalvo = await this.apiGithub.salvaLogin('kspksdkpsdfdofdjgg');
-          console.log('loginSalvo', loginSalvo);
-          let loginRecuperado = await this.apiGithub.recuperaLogin();
-          console.log('loginRecuperado', loginRecuperado);
-        } catch (error) {
-            console.log(error);
-        }
-
-
+        
 
     }
 
@@ -44,14 +35,4 @@ export class LoginTokenPage {
         }
         
     }
-
-
-    async buscaOrgs() {
-    try {
-        
-    } catch (error) {
-        
-    }
-    }
-
 }

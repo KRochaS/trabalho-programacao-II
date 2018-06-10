@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class ApiGithubProvider {
 
     organizacoes: any[] = [];
-    repositorios: any[] =[]
+    repositorios: any[] = []
 
     private apiLink = "https://api.github.com";
 
@@ -17,26 +17,24 @@ export class ApiGithubProvider {
     }
 
     async buscaOrgs(): Promise<any> {
-        
+
         this.organizacoes = await this.httpGet(this.apiLink + '/user/orgs', {});
 
 
         return this.organizacoes;
-    
+
     }
 
     async buscaRepositorios(org) {
-
+        console.log('ORG', org)
         try {
-        this.repositorios = await this.httpGet(this.apiLink + '/orgs/' +org +'/repos', {});
-
-        return this.repositorios;
-            
+            this.repositorios = await this.httpGet(org.repos_url, {});
+            console.log('Buscando encontrados', this.repositorios);
+            return this.repositorios;
         } catch (error) {
-            console.log(error);
+            console.error('Erro ao buscar repositórios', error);
             this.repositorios = [];
         }
-
     }
 
     buscaMilestones() {
@@ -115,7 +113,7 @@ export class ApiGithubProvider {
     async salvaColuna(col) {
         return this.storage.set('colum', col);
     }
- 
+
     async recuperaRepositorio() {
         let repo = await this.storage.get('repo');
 
