@@ -100,6 +100,8 @@ export class HomePage {
     async selecionaRepo() {
         try {
             await this.apiGit.salvaRepositorio(this.repo);
+            console.log('repositorio selecionado', this.repo);
+            await this.apiGit.buscaMilestones(this.repo)
             console.log('repo', this.repo);
         } catch (error) {
             console.log(error);

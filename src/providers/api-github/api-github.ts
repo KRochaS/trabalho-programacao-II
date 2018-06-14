@@ -7,6 +7,10 @@ export class ApiGithubProvider {
 
     organizacoes: any[] = [];
     repositorios: any[] = []
+    orgSelecionada: string;
+    milestonesLista: any[] = [];
+    milestoneSelecionada: string;
+    colunaSelecionada: string;
 
     private apiLink = "https://api.github.com";
 
@@ -28,6 +32,8 @@ export class ApiGithubProvider {
     async buscaRepositorios(org) {
         console.log('ORG', org)
         try {
+            this.orgSelecionada = org.login;
+            console.log('OrgSelecioanda', this.orgSelecionada);
             this.repositorios = await this.httpGet(org.repos_url, {});
             console.log('Buscando encontrados', this.repositorios);
             return this.repositorios;
@@ -37,8 +43,20 @@ export class ApiGithubProvider {
         }
     }
 
-    buscaMilestones() {
-        return this.httpGet(this.apiLink + '/repos/InfocapTI/next/milestones', {})
+    async buscaMilestones(repositorio) {
+        // https://api.github.com/repos/InfocapTI/next/milestones
+
+        let urlMilestone = this.apiLink + '/repos/' + this.orgSelecionada + '/' + repositorio + '/milestones'
+        console.log('url milestone', urlMilestone);
+
+        try {
+            let milestones = await this.httpGet(urlMilestone, {})
+            console.log('milestone', milestones);
+            this.milestonesLista = milestones;
+        } catch (error) {
+            console.error('Erro', error);
+            throw error;
+        }
     }
 
 

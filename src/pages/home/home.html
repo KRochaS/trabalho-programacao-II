@@ -17,7 +17,7 @@
                 <ion-item>
                     <ion-label>Repositórios</ion-label>
                     <ion-select [(ngModel)]="repo" (ionChange)="selecionaRepo()">
-                        <ion-option  *ngFor="let repo of apiGit.repositorios">{{repo.name}}</ion-option>
+                        <ion-option *ngFor="let repo of apiGit.repositorios">{{repo.name}}</ion-option>
 
                     </ion-select>
                 </ion-item>
@@ -28,7 +28,7 @@
                 <ion-item>
                     <ion-label>Milestones</ion-label>
                     <ion-select [(ngModel)]="milestone" (ionChange)="selecionaMile()">
-                        <ion-option *ngFor="let milestone of milestones">{{milestone.title}}</ion-option>
+                        <ion-option *ngFor="let milestone of apiGit.milestonesLista">{{milestone.title}}</ion-option>
 
                     </ion-select>
                 </ion-item>
