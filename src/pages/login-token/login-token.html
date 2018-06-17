@@ -7,24 +7,24 @@
 
                     <div class="polygon-each-img-wrap">
                         <!-- ../../assets/imgs/img-poligono.jpg -->
-                        
+
                         <div class="img-nuvem">
-                            <img src="../../assets/icon/organizacao.svg" class="nuvem">
+                            <img src="../../assets/imgs/octocat.png" class="nuvem">
                         </div>
 
-                        <p> GitSum </p>
+                        <p> X9Hub </p>
                     </div>
                 </ion-row>
                 <form [ngClass]="'form-login'" padding>
                     <ion-item no-margin no-padding>
-                        <ion-label floating>token</ion-label>
-                        <ion-input name="token" [(ngModel)]="token" type="text"></ion-input>
+                        <ion-label stacked>token</ion-label>
+                        <ion-input placeholder="token xxxxx" name="token" [(ngModel)]="token" type="text"></ion-input>
                     </ion-item>
 
                     <!-- <nx-error  control="email"></nx-error> -->
 
                     <!-- senha -->
-                   
+
 
                     <!-- <small padding *ngIf="formLogin?.controls['senha'].dirty && formLogin?.controls['senha'].touched"> {{ exibeMensagem(formLogin.controls['senha']) }}</small> -->
 
@@ -32,15 +32,13 @@
 
 
                         <ion-col text-right class="adquirir-token">
-                            <a  target="_blank" href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">Como adquirir Token</a>
+                            <a target="_blank" href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">Como adquirir Token</a>
                         </ion-col>
                     </ion-row>
 
                     <!-- login -->
-                    <button [ngClass]="'button-entrar'" (click)="logar()" margin-top ion-button
-                        full margin-bottom>
+                    <button [ngClass]="'button-entrar'" (click)="logar()" margin-top ion-button full margin-bottom>
                         Entrar
-                       
                     </button>
                 </form>
             </div>

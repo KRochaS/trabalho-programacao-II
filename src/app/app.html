@@ -9,17 +9,33 @@
 
 
         <ion-content>
+
             <ion-list>
                 <ion-title padding> Organizações </ion-title>
             </ion-list>
 
-            <div *ngIf="apiGit && apiGit.organizacoes" >
+            <div *ngIf="apiGit && apiGit.organizacoes">
+
 
                 <button ion-item no-lines *ngFor="let org of apiGit.organizacoes" (click)="abreOrgs(org)">
-                        {{org.login}}
+                    <ion-row>
+                        <ion-col col-auto>
+                            <img class="avatar-org" [src]="org.avatar_url">
+                        </ion-col>
+                        <ion-col class="nome-org">
+                            <p> {{org.login}} </p>
+                        </ion-col>
+                    </ion-row>
                 </button>
             </div>
-            
+
+
+
+            <ion-footer no-lines>
+                <button no-margin clear ion-button full (click)="sair()">
+                    Sair
+                </button>
+            </ion-footer>
         </ion-content>
 
 

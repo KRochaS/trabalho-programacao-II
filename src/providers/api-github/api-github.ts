@@ -24,8 +24,10 @@ export class ApiGithubProvider {
 
         this.organizacoes = await this.httpGet(this.apiLink + '/user/orgs', {});
 
-
+        console.log('ORGANIZAÇÕES', this.organizacoes);
         return this.organizacoes;
+
+
 
     }
 
@@ -149,4 +151,5 @@ export class ApiGithubProvider {
 
         return col;
     }
+
 }
