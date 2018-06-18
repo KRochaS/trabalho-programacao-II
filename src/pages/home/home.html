@@ -16,9 +16,8 @@
                 <h2> Selecione o Repositório </h2>
                 <ion-item>
                     <ion-label>Repositórios</ion-label>
-                    <ion-select [(ngModel)]="repo" (ionChange)="selecionaRepo()">
+                    <ion-select [(ngModel)]="apiGit.repoSelecionado" (ionChange)="apiGit.selecionaRepo()">
                         <ion-option *ngFor="let repo of apiGit.repositorios">{{repo.name}}</ion-option>
-
                     </ion-select>
                 </ion-item>
             </ion-col>
@@ -27,23 +26,29 @@
                 <h2> Selecione a Milestone (Sprint) </h2>
                 <ion-item>
                     <ion-label>Milestones</ion-label>
-                    <ion-select [(ngModel)]="milestone" (ionChange)="selecionaMile()">
+                    <ion-select [(ngModel)]="apiGit.milestoneSelecionada" (ionChange)="apiGit.selecionaMile()">
                         <ion-option *ngFor="let milestone of apiGit.milestonesLista">{{milestone.title}}</ion-option>
 
                     </ion-select>
                 </ion-item>
             </ion-col>
+
+            <ion-col col-12 col-lg-4>
+                <h2> Selecione o Projeto (Sprint) </h2>
+                <ion-item>
+                    <ion-label>Projetos</ion-label>
+                    <ion-select [(ngModel)]="apiGit.projetoSelecionado" (ionChange)="apiGit.selecionaProjeto()">
+                        <ion-option *ngFor="let projeto of apiGit.projetosLista" [value]="projeto">{{projeto.name}}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+
             <ion-col col-12 col-lg-4>
                 <h2> Selecione a Coluna </h2>
                 <ion-item>
                     <ion-label>Colunas</ion-label>
-                    <ion-select>
-                        <ion-option> Backlog </ion-option>
-                        <ion-option> Sprint Backlog </ion-option>
-                        <ion-option> In Progress </ion-option>
-                        <ion-option> Aguardando </ion-option>
-                        <ion-option> Concluído </ion-option>
-
+                    <ion-select [(ngModel)]="apiGit.colunaSelecionada" (ionChange)="apiGit.selecionaColuna()" multiple="true">
+                        <ion-option  *ngFor="let coluna of apiGit.colunasLista" [value]="coluna"> {{coluna.name}} </ion-option>
                     </ion-select>
 
 
@@ -52,9 +57,9 @@
 
         </ion-row>
 
-        <button ion-button clear (click)="abrirVisaoGeral()">
+        <!-- <button ion-button clear (click)="abrirVisaoGeral()">
             Visão geral de issues
-        </button>
+        </button> -->
 
 
 
