@@ -133,9 +133,9 @@ export class ApiGithubProvider {
             // ATENÇÃO: acceptInertia não é usado em todas as funções de API
             let projetos = await this.httpGet(urlProjetos, {}, { acceptInertia: true });
             console.log('projetos', projetos);
-            this.projetosLista = projetos;            
+            this.projetosLista = projetos;
         } catch (error) {
-            console.error('Erro', error);            
+            console.error('Erro', error);
             throw error;
         }
     }
@@ -150,29 +150,65 @@ export class ApiGithubProvider {
         //  "columns_url": "https://api.github.com/projects/1293434/columns",        
 
         console.log('projeto selecionado', this.projetoSelecionado);
-        try {            
-            this.colunasLista = await this.httpGet(this.projetoSelecionado.columns_url, {}, {acceptInertia:true});            
+        try {
+            this.colunasLista = await this.httpGet(this.projetoSelecionado.columns_url, {}, { acceptInertia: true });
             console.log('colunas', this.colunasLista);
         } catch (error) {
-            console.error('Erro', error);            
+            console.error('Erro', error);
             throw error;
         }
     }
 
-    async  selecionaColuna  () {     
+    async  selecionaColuna() {
+
+
+        let estimativaTotal;
+
+        let tdtTotal;
+
+        let qtdNDefinidas;
+
+        let qtdIndefinida;
         // busca o conteúdo das cards
 
-        let requisicoesCards = [];
-        // para cada coluna selecionada faz uma requisição
-        for(let colunaSeleciona of this.colunaSelecionada){
-            let requisicaoCard = this.httpGet(colunaSeleciona.cards_url, {}, { acceptInertia: true });
-            requisicoesCards.push(requisicaoCard);               
-        }
-        // efetua as requisções em paralelo
-        let results = await Promise.all(requisicoesCards);
 
-        console.log('Cards da coluna', results);
+        // para cada coluna selecionada faz uma requisição
+      
+
+        let cards = await this.httpGet(this.colunaSelecionada.cards_url, {}, { acceptInertia: true });
+
+        let resultados = [];
+
+
+        for (let card of cards) {
+    
+            let cardContent = await this.httpGet(card.content_url, {}, { acceptInertia: true });
+
+            let body = cardContent.body;
+
+                let estimativa = body.match(/Estimativa\s*:\s*\d{1,2}(\.\d+)?\s*h/g);
+    
+
+                if(estimativa && estimativa.length > 0) {
+                       let arrayResultados = estimativa[0].match(/\d{1,2}(\.\d+)?/g);
+                        
+                       if(arrayResultados && arrayResultados.length > 0) {
+                           let tempoEstimativa = arrayResultados[0];
+
+                           console.log('tempoEstimativa', tempoEstimativa);
+                       }
+
+
+                }
+
+        
+        }
+
+
     }
+
+
+
 
     async selecionaRepo() {
         if (!this.orgSelecionada) { throw new Error('Organização não selecionada'); }

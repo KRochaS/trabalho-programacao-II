@@ -47,7 +47,7 @@
                 <h2> Selecione a Coluna </h2>
                 <ion-item>
                     <ion-label>Colunas</ion-label>
-                    <ion-select [(ngModel)]="apiGit.colunaSelecionada" (ionChange)="apiGit.selecionaColuna()" multiple="true">
+                    <ion-select [(ngModel)]="apiGit.colunaSelecionada" (ionChange)="apiGit.selecionaColuna()">
                         <ion-option  *ngFor="let coluna of apiGit.colunasLista" [value]="coluna"> {{coluna.name}} </ion-option>
                     </ion-select>
 
