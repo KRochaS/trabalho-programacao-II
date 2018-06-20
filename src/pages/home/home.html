@@ -57,9 +57,9 @@
 
         </ion-row>
 
-        <!-- <button ion-button clear (click)="abrirVisaoGeral()">
+        <button ion-button clear (click)="abrirVisaoGeral()">
             Visão geral de issues
-        </button> -->
+        </button>
 
 
 
@@ -76,7 +76,7 @@
                 <ion-card padding class="primeiro-card">
                     <ion-card-header>
                         <h1>
-                            In Progress (6)
+                            {{apiGit.colunaSelecionada.name}} ({{apiGit.qtdCards}})
                         </h1>
                     </ion-card-header>
 
@@ -91,7 +91,7 @@
                             </ion-col>
                             <ion-col col-auto padding>
                                 <div padding class="total-estimativa">
-                                    <p> 18h </p>
+                                    <p> {{apiGit.somatorio}}h </p>
                                 </div>
                             </ion-col>
                         </ion-row>

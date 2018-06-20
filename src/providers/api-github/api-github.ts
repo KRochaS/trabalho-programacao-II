@@ -17,6 +17,8 @@ export class ApiGithubProvider {
     milestoneSelecionada: string;
     projetoSelecionado: any;
     colunaSelecionada: any;
+    somatorio;
+    qtdCards;
 
     private apiLink = "https://api.github.com";
 
@@ -161,6 +163,10 @@ export class ApiGithubProvider {
 
     async  selecionaColuna() {
 
+        
+        this.somatorio = 0;
+
+        this.qtdCards = 0;
 
         let estimativaTotal;
 
@@ -177,6 +183,8 @@ export class ApiGithubProvider {
 
         let cards = await this.httpGet(this.colunaSelecionada.cards_url, {}, { acceptInertia: true });
 
+        console.log('coluna selecionaaaada', this.colunaSelecionada);
+
         let resultados = [];
 
 
@@ -185,6 +193,7 @@ export class ApiGithubProvider {
             let cardContent = await this.httpGet(card.content_url, {}, { acceptInertia: true });
 
             let body = cardContent.body;
+
 
                 let estimativa = body.match(/Estimativa\s*:\s*\d{1,2}(\.\d+)?\s*h/g);
     
@@ -196,6 +205,16 @@ export class ApiGithubProvider {
                            let tempoEstimativa = arrayResultados[0];
 
                            console.log('tempoEstimativa', tempoEstimativa);
+                            
+                            this.somatorio = parseFloat(tempoEstimativa)+ this.somatorio;
+
+                            console.log('Somatório', this.somatorio);
+
+                            this.qtdCards = cards.length;
+
+                            console.log('QUANTIDADE DE CARDS', this.qtdCards);
+
+
                        }
 
 

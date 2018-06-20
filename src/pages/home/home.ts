@@ -36,6 +36,10 @@ export class HomePage {
 
     }
 
+    abrirVisaoGeral() {
+        this.visaoGeral = !this.visaoGeral; 
+    }
+
 
 
 
