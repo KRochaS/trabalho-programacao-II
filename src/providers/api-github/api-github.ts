@@ -19,6 +19,9 @@ export class ApiGithubProvider {
     colunaSelecionada: any;
     somatorio;
     qtdCards;
+    qtdEstimada;
+    qtdSemEstimativa;
+    
 
     private apiLink = "https://api.github.com";
 
@@ -164,17 +167,23 @@ export class ApiGithubProvider {
     async  selecionaColuna() {
 
         
+
         this.somatorio = 0;
 
         this.qtdCards = 0;
 
-        let estimativaTotal;
+      
 
-        let tdtTotal;
+        
 
-        let qtdNDefinidas;
+       
+        // let estimativaTotal;
 
-        let qtdIndefinida;
+        // let tdtTotal;
+
+        // let qtdNDefinidas;
+
+        // let qtdIndefinida;
         // busca o conteúdo das cards
 
 
@@ -187,34 +196,68 @@ export class ApiGithubProvider {
 
         let resultados = [];
 
+        let arrayComEstimativas = [];
 
         for (let card of cards) {
+
+
     
             let cardContent = await this.httpGet(card.content_url, {}, { acceptInertia: true });
 
             let body = cardContent.body;
 
 
+
                 let estimativa = body.match(/Estimativa\s*:\s*\d{1,2}(\.\d+)?\s*h/g);
+
+                console.log('LET ESTIMATIVA', estimativa);
+
+            
     
 
                 if(estimativa && estimativa.length > 0) {
                        let arrayResultados = estimativa[0].match(/\d{1,2}(\.\d+)?/g);
+
+                       console.log('arrayresultados',arrayResultados);
+
+                
                         
                        if(arrayResultados && arrayResultados.length > 0) {
                            let tempoEstimativa = arrayResultados[0];
 
                            console.log('tempoEstimativa', tempoEstimativa);
+
+
+                        
+                           arrayComEstimativas.push(tempoEstimativa);
+
+                           console.log('array com estimativa', arrayComEstimativas);
+
+
+                          this.qtdEstimada = arrayComEstimativas.length;
+                          
                             
                             this.somatorio = parseFloat(tempoEstimativa)+ this.somatorio;
+
 
                             console.log('Somatório', this.somatorio);
 
                             this.qtdCards = cards.length;
 
-                            console.log('QUANTIDADE DE CARDS', this.qtdCards);
+                      
 
+                       
+                           console.log('QUANTIDADE DE ISSUES COM ESTIMATIVA', this.qtdEstimada);
+                           console.log('QUANTIDADE DE CARDS', this.qtdCards);
+                        
 
+                          this.qtdSemEstimativa = this.qtdCards - this.qtdEstimada;
+
+                         console.log('Quantidade de Issue sem Estimativa', this.qtdSemEstimativa);
+
+                    
+                        
+                         
                        }
 
 

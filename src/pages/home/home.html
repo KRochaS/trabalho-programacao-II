@@ -82,7 +82,7 @@
 
                     <ion-card padding>
                         <h5 class="borda" padding>
-                            Issues com estimativa: 6
+                            Issues com estimativa: {{apiGit.qtdEstimada}}
                         </h5>
 
                         <ion-row>
@@ -99,7 +99,7 @@
 
 
 
-                    <ion-card padding>
+                    <!-- <ion-card padding>
                         <h5 class="borda" padding>
                             Issues com TDT: 6
                         </h5>
@@ -114,17 +114,17 @@
                                 </div>
                             </ion-col>
                         </ion-row>
-                    </ion-card>
+                    </ion-card> -->
 
 
                     <ion-card padding>
-                        <h5 class="borda" padding>
-                            Issues sem Estimativa: 0
+                        <h5 padding>
+                            Issues sem Estimativa: {{apiGit.qtdSemEstimativa}}
                         </h5>
 
-                        <h5 padding>
+                        <!-- <h5 padding>
                             Issues sem TDT: 0
-                        </h5>
+                        </h5> -->
                     </ion-card>
 
                     <!-- <h5> Somatório de Estimativas: </h5>

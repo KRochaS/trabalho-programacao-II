@@ -8,7 +8,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     templateUrl: 'app.html'
 })
 export class MyApp {
-    rootPage: string = 'home';
+    rootPage: string = 'login-token';
 
       @ViewChild(Nav) nav: Nav;
 
